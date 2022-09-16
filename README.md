@@ -20,7 +20,7 @@ Minimum Starlite API Implementation.
 
 `$ poetry install`
 
-`$ poetry run uvicorn main:app --reload`
+`$ poetry run uvicorn app.main:app --reload`
 
 `$ curl localhost:8000/ -w "\n"`
 
