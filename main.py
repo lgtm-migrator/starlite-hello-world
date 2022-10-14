@@ -1,13 +1,22 @@
 """Minimal Starlite application."""
-from typing import Any
+from typing import TypedDict
 
-from starlite import Starlite, get
+from starlite import Starlite, post
+
+from typeddict_plugin import TypedDictPlugin
 
 
-@get("/")
-def hello_world() -> dict[str, Any]:
+class DataType(TypedDict):
+    """A typed dict."""
+
+    a: str
+    b: int
+
+
+@post("/")
+def hello_world(data: DataType) -> DataType:
     """Route Handler that outputs hello world."""
-    return {"hello": "world"}
+    return data
 
 
-app = Starlite(route_handlers=[hello_world])
+app = Starlite(route_handlers=[hello_world], plugins=[TypedDictPlugin()])

@@ -64,6 +64,7 @@ disable = [
     "missing-module-docstring",
 ]
 enable = "useless-suppression"
+extension-pkg-whitelist = "pydantic"
 
 [tool.pylint.BASIC]
 no-docstring-rgx="test.*$"
